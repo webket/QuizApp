@@ -2,7 +2,7 @@ export default class Request{
     _questions = null
     categories = {
         books: 10, films: 11, music: 12, computers: 18, math: 19,
-        sports: 21, geography: 22, history: 23, art: 25, cartton: 25
+        sports: 21, geography: 22, history: 23, art: 25, cartoon: 25
     }
     _results = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     _current = -1

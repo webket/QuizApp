@@ -1,0 +1,15 @@
+@import url(../Category/Category.css);
+@import url(../Landing/Landing.css);
+@import url(../Question/Question.css);
+@import url(../Result/Result.css);
+
+.decore{
+    width: 100vw; height: 100vh; position: fixed; top: 0; left: 0;
+    z-index: -1;
+}
+.decore>.top-shape{
+    width: 19.5%; min-width: 180px; position: absolute; left: 0; top: 0;
+}
+.decore>.bottom-shape{
+    width: 19.5%; min-width: 180px; position: absolute; right: 0; bottom: 0;
+}
