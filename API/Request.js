@@ -42,7 +42,9 @@ export default class Request{
             return this.finishQuiz()
         }
         else {
-            let currentQuestion = {...this._questions[++this._current]}
+            let currentQuestion = {
+                ...this._questions[++this._current], number: this._current + 1
+            }
             delete currentQuestion.correct
             return currentQuestion
         }
@@ -51,11 +53,11 @@ export default class Request{
         if( this._results[this._current] === 0 ) {
             if(this._questions[this._current].correct == index) {
                 this._results[this._current] = 1
-                return true
+                return [true]
             }
             else {
                 this._results[this._current] = -1
-                return false
+                return [false, this._questions[this._current].correct]
             }
         }
     }

@@ -9,8 +9,8 @@ export default function Landing(setState) {
                 comket.img({src: "./media/start.png", draggable: "false"}),
                 comket.h1({text: "Quiz App"}),
                 comket.button({
-                    text: "Start", onclick: () => {
-                        setState("Category")
+                    text: "Start", onclick: async () => {
+                        await setState("Category")
                     }
                 })
             ]})

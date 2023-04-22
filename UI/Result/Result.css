@@ -1,0 +1,42 @@
+.result{
+    width: 100vw; height: 100vh; overflow: hidden;
+}
+.result>.details{
+    width: 100vw; height: 100vh; display: flex; flex-flow: column nowrap;
+    justify-content: center; align-items: center; gap: 0px;
+}
+.result>.details>img{ width: 256px; }
+.result>.details>h4{
+    font-size: 150px; color: #4CA3F6;
+}
+.result>.details>.actions{
+    width: 100vw; display: flex; flex-flow: row nowrap; gap: 50px;
+    justify-content: center; align-items: center; margin-top: 60px;
+    padding: 0 20px;
+}
+.result>.details>.actions>button{
+    max-width: 240px; min-width: 110px; width: 40%; height: 60px;
+    cursor: pointer; border-radius: 10px; font-size: 28px;
+    transition: all 0.3s; border: 1px solid #4CA3F6;
+}
+.result>.details>.actions>button:first-child{
+    background-color: #FFFFFF; color: #4CA3F6;
+}
+.result>.details>.actions>button:first-child:hover{
+    background-color: #4CA3F6; color: #FFFFFF;
+}
+.result>.details>.actions>button:last-child{
+    background-color: #4CA3F6; color: #FFFFFF;
+}
+.result>.details>.actions>button:last-child:hover{
+    background-color: #FFFFFF; color: #4CA3F6;
+}
+
+@media only screen and (max-width: 450px) {
+    .result>.details>img{ width: 190px; }
+    .result>.details>h4{ font-size: 90px; }
+    .result>.details>.actions{ gap: 20px; }
+    .result>.details>.actions>button{
+        font-size: 16px; height: 45px;
+    }
+}

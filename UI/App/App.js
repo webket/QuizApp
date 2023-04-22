@@ -4,7 +4,7 @@ import Category from "../Category/Category.js"
 import Question from "../Question/Question.js"
 import Result from "../Result/Result.js"
 
-export default function App(page) {
+export default async function App(page) {
     let parent = comket.div({
         class: "app", children: [
             comket.p({text: "loading..."})
@@ -12,9 +12,9 @@ export default function App(page) {
     })
     parent.status = {
         page: {
-            value: page || "Landing", setValue(value) {
+            value: page || "Landing", async setValue(value) {
                 parent.status.page.value = value
-                document.querySelector(".app").replaceWith( App(value) )
+                document.querySelector(".app").replaceWith( await App(value) )
             }
         }
     }
@@ -26,13 +26,24 @@ export default function App(page) {
         parent.innerHTML = ""
         parent.append(Category(parent.status.page.setValue))
     }
-    else if(parent.status.page.value === "Question") {
+    else if(parent.status.page.value.split("-")[0] === "Question") {
         parent.innerHTML = ""
-        parent.append(Question(parent.status.page.setValue))
+        parent.append(
+            await Question(
+                parent.status.page.setValue,
+                parent.status.page.value.split("-")[1]
+            )
+        )
     }
-    else if(parent.status.page.value === "Result") {
+    else if(parent.status.page.value.split("--")[0] === "Result") {
         parent.innerHTML = ""
-        parent.append(Result(parent.status.page.setValue))
+        parent.append(
+            Result(
+                parent.status.page.setValue,
+                JSON.parse(parent.status.page.value.split("--")[2]),
+                parent.status.page.value.split("--")[1]
+            )
+        )
     }
     return parent
 }
