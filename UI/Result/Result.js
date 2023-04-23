@@ -6,7 +6,7 @@ export default function Result(setState, results, category) {
     let precentage = results.filter(item => item === 1).length * 10
     let parent = comket.div({
         class: "result", children: [
-            // Tracking(),
+            Tracking(results),
             Decore(),
             comket.div({class: "details", children: [
                 comket.img({src: "./media/star.png"}),

@@ -8,7 +8,7 @@ export default async function Question(setState, category) {
     let quiz = await new Request(category)
     let parent = comket.div({
         class: "question", children: [
-            // Tracking(),
+            Tracking(quiz._results),
             Decore(),
             comket.div({class: "details", children: [
                 OneQuestion(
@@ -19,6 +19,7 @@ export default async function Question(setState, category) {
         ]
     })
     function nextQuestion() {
+        parent.querySelector(".tracking").render()
         parent.querySelector(".details").children[0].replaceWith(
             OneQuestion(
                 quiz.nextQuestion(),

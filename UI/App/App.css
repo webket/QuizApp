@@ -3,15 +3,52 @@
 @import url(../Question/Question.css);
 @import url(../Result/Result.css);
 
+.tracking{
+    width: 100%; position: absolute; top: 16px; left: 0;
+}
+.tracking>.line{
+    width: 100%; height: 10px; position: absolute; top: 50%; left: 0;
+    translate: 0 -50%; background-color: #DBEDFD; border: 1px solid #72CDFF;
+    z-index: -1;
+}
+.tracking>.points{
+    width: 100%; display: flex; flex-flow: row nowrap; gap: 5px;
+    justify-content: space-between; align-items: center; padding-right: 20px;
+}
+.tracking>.points>.point{
+    width: 7%; aspect-ratio: 1/1; border-radius: 50%;
+    max-width: 25px; min-width: 10px; background-color: #FFFFFF;
+    border: 0.6px solid #777777; box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+    display: flex; flex-flow: row nowrap; justify-content: center;
+    align-items: center;
+}
+.tracking>.points>.point>ion-icon{
+    display: none; font-size: 18px; color: #FFFFFF;
+}
+.tracking>.points>.point.right{
+    background-color: transparent; border: 1px solid #1581FF;
+    background-image: linear-gradient(-45deg, #39B8FF, #7BD0FF);
+}
+.tracking>.points>.point.wrong{
+    background-color: transparent; border: 1px solid #FF154D;
+    background-image: linear-gradient(-45deg, #FF395D, #FF7B9B);
+}
+.tracking>.points>.point.right>ion-icon.right{
+    display: block;
+}
+.tracking>.points>.point.wrong>ion-icon.wrong{
+    display: block;
+}
+
 .decore{
     width: 100vw; height: 100vh; position: fixed; top: 0; left: 0;
     z-index: -1;
 }
 .decore>.top-shape{
-    width: 19.5%; min-width: 180px; position: absolute; left: 0; top: 0;
+    width: 19.5%; min-width: 120px; position: absolute; left: 0; top: 0;
 }
 .decore>.bottom-shape{
-    width: 19.5%; min-width: 180px; position: absolute; right: 0; bottom: 0;
+    width: 19.5%; min-width: 120px; position: absolute; right: 0; bottom: 0;
 }
 
 .loading{
@@ -21,6 +58,12 @@
     width: 80px; height: 80px; position: absolute; left: 50%; top: 50%;
     translate: -50% -50%; transform-origin: 50% 100%;
     animation: loading 0.5s linear infinite;
+}
+
+@media only screen and (max-width: 600px) {
+    .tracking{ top: 12px; }
+    .tracking>.line{ height: 5px; }
+    .tracking>.points>.point>ion-icon{ font-size: 8px; }
 }
 
 @keyframes loading {
