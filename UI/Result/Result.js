@@ -22,5 +22,10 @@ export default function Result(setState, results, category) {
             ]})
         ]
     })
+    setTimeout(() => {
+        parent.querySelectorAll(".details").forEach(
+            item => item.classList.add("shown")
+        )
+    }, 1);
     return parent
 }

@@ -18,14 +18,28 @@ export default async function Question(setState, category) {
             ]})
         ]
     })
+    setTimeout(() => {
+        parent.querySelectorAll(".details").forEach(
+            item => item.classList.add("shown")
+        )
+    }, 1);
     function nextQuestion() {
         parent.querySelector(".tracking").render()
-        parent.querySelector(".details").children[0].replaceWith(
+
+        parent.querySelector(".details").append(
             OneQuestion(
                 quiz.nextQuestion(),
                 nextQuestion, checkCorrect, finishQuiz, setState
             )
         )
+        parent.querySelector(".details").children[0].classList.add("going")
+        setTimeout(() => {
+            parent.querySelector(".details").children[1].classList.add("shown")
+        }, 1);
+
+        setTimeout(() => {
+            parent.querySelector(".details").children[0].remove()
+        }, 300);
     }
     function checkCorrect(question) {
         return quiz.checkCurrent(question)

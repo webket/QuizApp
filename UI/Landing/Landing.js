@@ -16,5 +16,10 @@ export default function Landing(setState) {
             ]})
         ]
     })
+    setTimeout(() => {
+        parent.querySelectorAll(".details").forEach(
+            item => item.classList.add("shown")
+        )
+    }, 1);
     return parent
 }

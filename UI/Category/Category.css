@@ -12,10 +12,11 @@
 }
 .categories>.details>.cards>.category{
     width: 240px; height: 240px; background-color: #FFFFFF; gap: 10px;
-    border-radius: 10px; display: flex; flex-flow: column nowrap;
+    border-radius: 10px; display: flex; flex-flow: column nowrap; scale: 0;
     justify-content: center; align-items: center; cursor: pointer;
     box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.1); transition: all 0.3s;
 }
+.categories>.details>.cards>.category.shown{ scale: 1; }
 .categories>.details>.cards>.category:hover{
     box-shadow: 0 5px 18px 0 rgba(0, 0, 0, 0.2); scale: 1.03;
 }

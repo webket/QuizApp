@@ -2,7 +2,7 @@ import comket from "../../dependencies/comket.js";
 
 export default function OneQuestion(data, nextQuestion, checkCorrect, finishQuiz, setState) {
     let parent = comket.div({
-        class: "one-question", children: [
+        class: `one-question ${data.number == 1 ? "shown" : ""}`, children: [
             comket.h4({text: `Question ( ${data.number} )`}),
             comket.h5({text: data.question}),
             comket.div({class: "answers", children: [

@@ -1,8 +1,9 @@
 .landing>.details{
     width: 100vw; height: 100vh; display: flex; flex-flow: column nowrap;
     justify-content: center; align-items: center; gap: 0; overflow: hidden;
-    text-align: center;
+    text-align: center; scale: 0; transition: all 0.3s;
 }
+.landing>.details.shown{ scale: 1; }
 .landing>.details>img{width: 228px; transition: all 0.2s;}
 .landing>.details>h1{
     font-size: 100px; color: #138BFF; transition: all 0.2s;
