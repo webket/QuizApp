@@ -1,4 +1,5 @@
 import Decore from "../Components/Decore.js"
+import PlayPop from "../Sounds/PlayPop.js"
 import comket from "../dependencies/comket.js"
 
 export default function Landing(setState) {
@@ -10,6 +11,7 @@ export default function Landing(setState) {
                 comket.h1({text: "Quiz App"}),
                 comket.button({
                     text: "Start", onclick: async () => {
+                        PlayPop()
                         await setState("Category")
                     }
                 })

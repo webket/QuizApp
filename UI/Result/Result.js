@@ -1,5 +1,6 @@
 import Decore from "../Components/Decore.js"
 import Tracking from "../Components/Tracking.js"
+import PlayPop from "../Sounds/PlayPop.js"
 import comket from "../dependencies/comket.js"
 
 export default function Result(setState, results, category) {
@@ -13,9 +14,11 @@ export default function Result(setState, results, category) {
                 comket.h4({text: `${precentage}%`}),
                 comket.div({class: "actions", children: [
                     comket.button({text: "Reset", onclick: async () => {
+                        PlayPop()
                         await setState(`Question-${category}`)
                     }}),
                     comket.button({text: "Home", onclick: async () => {
+                        PlayPop()
                         await setState("Category")
                     }})
                 ]})

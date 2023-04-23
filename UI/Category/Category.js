@@ -15,6 +15,11 @@ export default function Category(setState) {
                     categories.map(item => {
                         return comket.div({
                             class: "category", onclick: async () => {
+                                let sound = document.querySelector(".pop-sound")
+                                sound.volume = 0.02
+                                sound.playbackRate = 2
+                                sound.currentTime = 0.15
+                                sound.play()
                                 await setState(`Question-${item}`)
                             },
                             children: [

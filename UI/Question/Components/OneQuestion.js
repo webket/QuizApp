@@ -1,3 +1,6 @@
+import PlayCorrect from "../../Sounds/PlayCorrect.js";
+import PlayPop from "../../Sounds/PlayPop.js";
+import PlayWrong from "../../Sounds/PlayWrong.js";
 import comket from "../../dependencies/comket.js";
 
 export default function OneQuestion(data, nextQuestion, checkCorrect, finishQuiz, setState) {
@@ -48,11 +51,13 @@ export default function OneQuestion(data, nextQuestion, checkCorrect, finishQuiz
             comket.div({class: "actions", children: [
                 comket.button({
                     text: "Cancel Quiz",
-                    onclick: async () => { await setState("Category") }
+                    onclick: async () => {
+                        PlayPop()
+                        await setState("Category")
+                    }
                 }),
                 comket.button({
                     text: data.number == 10 ? "Finish Quiz" : "Next Question",
-                    onclick: () => {}
                 })
             ]})
         ]
@@ -64,6 +69,7 @@ export default function OneQuestion(data, nextQuestion, checkCorrect, finishQuiz
     async function checkCard(e) {
         let correct = checkCorrect(cards.indexOf(e.target))
         if(correct[0]) {
+            PlayCorrect()
             e.target.classList.add("right")
             cards.forEach(async card => {
                 if(card !== e.target) {
@@ -73,6 +79,7 @@ export default function OneQuestion(data, nextQuestion, checkCorrect, finishQuiz
             })
         }
         else {
+            PlayWrong()
             e.target.classList.add("wrong")
             cards[correct[1]].classList.add("right")
             cards.forEach(card => {
